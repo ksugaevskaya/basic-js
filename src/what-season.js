@@ -15,12 +15,11 @@ function getSeason(date) {
   if (date === undefined) {
     return "Unable to determine the time of year!";
   }
-  if (!(date instanceof Date)) {
+  if (!(date instanceof Date) || date.hasOwnProperty("toString")) {
     throw new Error("Invalid date!");
   }
 
   let month = date.getMonth();
-  let season = " ";
   if (month === 0 || month === 1 || month === 11) {
     return "winter";
   }
